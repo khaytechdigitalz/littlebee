@@ -1,0 +1,13 @@
+node_modules/
+.env
+build/
+tmp/
+
+# Vite build output lands in public/ (see vite.config.ts) — these are
+# generated on every `npm run build`, not source files. public/uploads/ is
+# real user data and is deliberately NOT listed here.
+/public/index.html
+/public/assets/
+
+.DS_Store
+*.log

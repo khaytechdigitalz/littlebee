@@ -1,0 +1,67 @@
+{
+  "name": "littlebee",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "imports": {
+    "#app/*": "./app/*.ts",
+    "#config/*": "./config/*.ts",
+    "#start/*": "./start/*.ts",
+    "#database/*": "./database/*.ts",
+    "#commands/*": "./commands/*.ts"
+  },
+  "scripts": {
+    "postinstall": "node scripts/setup-env.js",
+    "db:setup": "tsx scripts/db-setup.ts",
+    "dev": "concurrently -n API,WEB -c blue,green \"tsx watch bin/server.ts\" \"vite\"",
+    "build": "vite build",
+    "start": "tsx bin/server.ts",
+    "typecheck:backend": "tsc --noEmit",
+    "typecheck:frontend": "tsc --noEmit -p tsconfig.frontend.json"
+  },
+  "dependencies": {
+    "@adonisjs/core": "^6.12.1",
+    "@adonisjs/lucid": "^21.1.0",
+    "@adonisjs/auth": "^9.2.3",
+    "@adonisjs/cors": "^2.2.1",
+    "@adonisjs/static": "^1.1.1",
+    "@vinejs/vine": "^2.1.0",
+    "mysql2": "^3.11.3",
+    "axios": "^1.7.7",
+    "luxon": "^3.5.0",
+    "reflect-metadata": "^0.2.2",
+    "otplib": "^12.0.1",
+    "qrcode": "^1.5.4",
+    "pino-pretty": "^11.2.2",
+    "tsx": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "recharts": "^2.12.7",
+    "lucide-react": "^0.383.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.2"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^7.8.2",
+    "@adonisjs/tsconfig": "^1.3.0",
+    "@japa/assert": "^3.0.0",
+    "@japa/runner": "^3.1.4",
+    "@swc/core": "^1.7.26",
+    "@types/node": "^22.7.5",
+    "@types/luxon": "^3.4.2",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.0.1",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.3"
+  }
+}
